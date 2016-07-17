@@ -67,10 +67,50 @@ class Student(object):
 
 #2:
 
-class Question(object):
-    def __init__(self, question, answer):
-        self.question = question
-        self.answer = answer
+# class Question(object):
+#     def __init__(self, question, answer):
+#         self.question = question
+#         self.answer = answer
+
+
+
+#3:
+
+# class Exam(object):
+#     def __init__(self, name):
+#         self.name = name
+#         self.question = []
+
+
+#PART 3:
+
+#1:
+
+# class Exam(Question):
+#     def __init__(self, name):
+#         self.name = name
+#         self.question = []
+
+#     def add_question(self, new_question, correct_answer):
+#         self.new_question = new_question
+#         self.correct_answer = correct_answer
+#         self.question.append(new_question)
+
+
+#2
+# class Question(object):
+#     def __init__(self, question, answer):
+#         self.question = question
+#         self.answer = answer
+
+#     def print_question(self):
+#         print self.question
+#         input_answer = raw_input('>>>')
+#         if input_answer == self.answer:
+#             return True
+#         else:
+#             return False
+
 
 #3
 
