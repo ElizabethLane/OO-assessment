@@ -98,18 +98,82 @@ The three main design advantages that object orientation provides are:
 
 
 #2:
+# class Question(object):
+#     def __init__(self, question, answer):
+#         self.question = question
+#         self.answer = answer
+
+#     def print_question(self):
+#         print self.question
+#         ask_and_evaluate = raw_input('>>>')
+#         if ask_and_evaluate == self.answer:
+#             return True
+#         else:
+#             return False
+
+
+# #3:
+
+# class Exam(Question):
+#     def __init__(self, name):
+#         self.name = name
+#         self.question = []
+
+#     def add_question(self, new_question, answer):
+#         self.new_question = new_questions
+#         self.answer = answer
+#         self.question.append(new_question)
+        
+
+#     def administer(self):
+#         self.score = 0
+#         correct_answer = self.print_question()
+#         if correct_answer == True:
+#             self.score += 1
+#         else:
+#             self.score -= 1
+
+#         return self.score
+
+
+#PART 4:
+
+#1:
+# def take_test(exam, student):
+#     exam = Exam(student)
+#     exam.add_question("What color is the sky?", "Blue")
+#     score = exam.administer()
+#     print score
+
+# #2:
+# def example(exam, student):
+#     exam = Exam(student)
+#     exam.add_question("What color is the sky?", "Blue")
+#     exam.add_question("What is 3 + 4", "7")
+#     exam.add_question("""What is the average air speed velocity of a laden swallow?""", "24mph")
+    # exam.administer()
+##For this it administers the questions, but there is no way to evalue the answers.
+#Per the instructions we were not supposed to amend our original classes and methods,
+#but that would be necessary to store the appended answer and loop through the questions/answers
+#I am going to refactor the code below for Part 5 to satisfy this as it is necessary to
+#evaluate the answers.  
+#This was made a little unclear in the directions, or I am misunderstanding.
+
+
+#PART 5:
+
 class Question(object):
     def __init__(self, question, answer):
         self.question = question
         self.answer = answer
 
-    def print_question(self):
-        print self.question
-        ask_and_evaluate = raw_input('>>>')
-        if ask_and_evaluate == self.answer:
-            return True
-        else:
-            return False
+    # def print_question(self):
+    #     print self.question
+    #     ask_and_evaluate = raw_input('>>>')
+    #     if ask_and_evaluate == self.answer:
+    #         return True
+    #     else:
+    #         return False
 
 
 #3:
@@ -118,43 +182,25 @@ class Exam(Question):
     def __init__(self, name):
         self.name = name
         self.question = []
+        self.answer = []
 
     def add_question(self, new_question, answer):
-        self.new_question = new_question
-        self.answer = answer
         self.question.append(new_question)
+        self.answer.append(answer)
+
         
 
     def administer(self):
         self.score = 0
-        correct_answer = self.print_question()
-        if correct_answer == True:
-            self.score += 1
-        else:
-            self.score -= 1
+        for question in self.question:
+            ask_and_evaluate = raw_input(question + ">>>")
+            if ask_and_evaluate == self.answer[self.question.index(question)]:
+                self.score += 1
+            else:
+                self.score -= 1
 
         return self.score
 
-
-#PART 4:
-
-#1:
-def take_test(exam, student):
-    exam = Exam(student)
-    exam.add_question("What color is the sky?", "Blue")
-    score = exam.administer()
-    print score
-
-#2:
-def example(exam, student):
-    exam = Exam(student)
-    exam.add_question("What color is the sky?", "Blue")
-    exam.add_question("What is 3 + 4", "7")
-    exam.add_question("""What is the average air speed velocity of a laden swallow?""", "24mph")
-    exam.administer()
-
-
-#PART 5:
 
 
 
