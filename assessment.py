@@ -123,6 +123,7 @@ class Exam(Question):
         self.new_question = new_question
         self.answer = answer
         self.question.append(new_question)
+        
 
     def administer(self):
         self.score = 0
@@ -144,7 +145,16 @@ def take_test(exam, student):
     score = exam.administer()
     print score
 
+#2:
+def example(exam, student):
+    exam = Exam(student)
+    exam.add_question("What color is the sky?", "Blue")
+    exam.add_question("What is 3 + 4", "7")
+    exam.add_question("""What is the average air speed velocity of a laden swallow?""", "24mph")
+    exam.administer()
 
+
+#PART 5:
 
 
 
