@@ -55,6 +55,29 @@ The three main design advantages that object orientation provides are:
 
 """
 
+#PART 2:
+#1:
 
-# Parts 2 through 5:
-# Create your classes and class methods
+class Student(object):
+    def __init__(self, first_name, last_name, address):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.address = address
+
+
+#2:
+
+class Question(object):
+    def __init__(self, question, answer):
+        self.question = question
+        self.answer = answer
+
+#3
+
+
+
+
+
+
+
+
