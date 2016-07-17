@@ -173,7 +173,6 @@ class Exam(object):
         self.question.append(new_question)
         self.answer.append(answer)
 
-        
     def administer(self):
         self.score = 0
         for question in self.question:
@@ -182,8 +181,23 @@ class Exam(object):
                 self.score += 1
             else:
                 self.score -= 1
-
         return self.score
+
+
+class Quiz(Exam):
+    def __init__(self, name):
+        super(Quiz, self).__init__(name)
+
+
+    def take_quiz(self):
+        score = super(Quiz, self).administer()
+        if score >= int(len(self.question)) / 2:
+            return True
+        else:
+            return False
+
+
+
 
 
 
