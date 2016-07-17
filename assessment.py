@@ -58,11 +58,11 @@ The three main design advantages that object orientation provides are:
 #PART 2:
 #1:
 
-class Student(object):
-    def __init__(self, first_name, last_name, address):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.address = address
+# class Student(object):
+#     def __init__(self, first_name, last_name, address):
+#         self.first_name = first_name
+#         self.last_name = last_name
+#         self.address = address
 
 
 #2:
@@ -97,22 +97,52 @@ class Student(object):
 #         self.question.append(new_question)
 
 
-#2
-# class Question(object):
-#     def __init__(self, question, answer):
-#         self.question = question
-#         self.answer = answer
+#2:
+class Question(object):
+    def __init__(self, question, answer):
+        self.question = question
+        self.answer = answer
 
-#     def print_question(self):
-#         print self.question
-#         input_answer = raw_input('>>>')
-#         if input_answer == self.answer:
-#             return True
-#         else:
-#             return False
+    def print_question(self):
+        print self.question
+        ask_and_evaluate = raw_input('>>>')
+        if ask_and_evaluate == self.answer:
+            return True
+        else:
+            return False
 
 
-#3
+#3:
+
+class Exam(Question):
+    def __init__(self, name):
+        self.name = name
+        self.question = []
+
+    def add_question(self, new_question, answer):
+        self.new_question = new_question
+        self.answer = answer
+        self.question.append(new_question)
+
+    def administer(self):
+        self.score = 0
+        correct_answer = self.print_question()
+        if correct_answer == True:
+            self.score += 1
+        else:
+            self.score -= 1
+
+        return self.score
+
+
+#PART 4:
+
+#1:
+def take_test(exam, student):
+    exam = Exam(student)
+    exam.add_question("What color is the sky?", "Blue")
+    score = exam.administer()
+    print score
 
 
 
