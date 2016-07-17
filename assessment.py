@@ -120,7 +120,6 @@ The three main design advantages that object orientation provides are:
 #         self.question = []
 
 #     def add_question(self, new_question, answer):
-#         self.new_question = new_questions
 #         self.answer = answer
 #         self.question.append(new_question)
         
@@ -152,33 +151,19 @@ The three main design advantages that object orientation provides are:
 #     exam.add_question("What is 3 + 4", "7")
 #     exam.add_question("""What is the average air speed velocity of a laden swallow?""", "24mph")
     # exam.administer()
-##For this it administers the questions, but there is no way to evalue the answers.
+
+
+#For the above function it administers the questions, but there is no way to evaluate the answers.
 #Per the instructions we were not supposed to amend our original classes and methods,
 #but that would be necessary to store the appended answer and loop through the questions/answers
 #I am going to refactor the code below for Part 5 to satisfy this as it is necessary to
-#evaluate the answers.  
+#evaluate the answers to keep a score and declare Passed or Failed.  
 #This was made a little unclear in the directions, or I am misunderstanding.
 
 
 #PART 5:
 
-class Question(object):
-    def __init__(self, question, answer):
-        self.question = question
-        self.answer = answer
-
-    # def print_question(self):
-    #     print self.question
-    #     ask_and_evaluate = raw_input('>>>')
-    #     if ask_and_evaluate == self.answer:
-    #         return True
-    #     else:
-    #         return False
-
-
-#3:
-
-class Exam(Question):
+class Exam(object):
     def __init__(self, name):
         self.name = name
         self.question = []
@@ -189,7 +174,6 @@ class Exam(Question):
         self.answer.append(answer)
 
         
-
     def administer(self):
         self.score = 0
         for question in self.question:
